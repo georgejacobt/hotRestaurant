@@ -50,27 +50,25 @@ app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
   });
 
-  app.get("/reservation.html", function (req, res) {
+  
+
+  app.get("/tables", function(req, res) {
+
+    res.sendFile(path.join(__dirname, "tables.html"));
+  });
+
+
+  app.get("/reservations", function(req, res) {
 
     res.sendFile(path.join(__dirname, "reservation.html"));
-   });
-   
-   app.get("/tables.html", function (req, res) {
-   
-    res.sendFile(path.join(__dirname, "tables.html"));
-   });
+  });
 
 
-
-  
-  //Using GET to retrieve all reservation information 
-  
-  app.get("/api/reservations", function(req, res) {
+  app.get("/api/tables", function(req, res) {
     return res.json(reservations);
   });
-  
-  
-  // Create New Reservation - takes in JSON input
+
+    // Create New Reservation - takes in JSON input
   app.post("/api/reservations", function(req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body-parser middleware
@@ -84,24 +82,6 @@ app.get("/", function(req, res) {
     // We then display the JSON to the users
     res.json(newReservation);
   });
-  
-  app.get("/tables", function(req, res) {
-  
-
-    res.sendFile(path.join(__dirname, "tables.html"));
-  });
-
-  app.get("/reservations", function(req, res) {
-    // res.sendFile(path.join(__dirname, "index.html"));
-
-    res.sendFile(path.join(__dirname, "reservation.html"));
-  });
-
-
-  app.get("/api/tables", function(req, res) {
-    return res.json(reservations);
-  });
-
 
 
 
