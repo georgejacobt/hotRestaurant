@@ -1,1 +1,1 @@
-# hotRestaurent
+# hotRestaurant
