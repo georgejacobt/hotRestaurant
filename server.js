@@ -9,6 +9,23 @@ var path = require("path");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+var reservations = [
+    {
+      routeName: "sendy",
+      name: "Sendy",
+      phonenumber: 777 - 777 - 7777,
+      email: "sendy@sendy.com",
+      unique_id: "table1"
+    },
+    {
+        routeName: "george",
+        name: "George",
+        phonenumber: 333 - 333 - 3333,
+        email: "george@g.com",
+        unique_id: "table2"
+    },
+  ];
+
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -33,27 +50,25 @@ app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
   });
 
-  app.get("/reservation.html", function (req, res) {
+
+  app.get("/tables", function(req, res) {
+  
+
+    res.sendFile(path.join(__dirname, "tables.html"));
+  });
+
+  app.get("/reservations", function(req, res) {
+    // res.sendFile(path.join(__dirname, "index.html"));
 
     res.sendFile(path.join(__dirname, "reservation.html"));
-   });
-   
-   app.get("/tables.html", function (req, res) {
-   
-    res.sendFile(path.join(__dirname, "tables.html"));
-   });
+  });
 
 
-
-  
-  //Using GET to retrieve all reservation information 
-  
-  app.get("/api/reservations", function(req, res) {
+  app.get("/api/tables", function(req, res) {
     return res.json(reservations);
   });
-  
-  
-  // Create New Reservation - takes in JSON input
+
+    // Create New Reservation - takes in JSON input
   app.post("/api/reservations", function(req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body-parser middleware
