@@ -1,0 +1,24 @@
+{
+  "name": "hotrestaurant",
+  "version": "1.0.0",
+  "description": "class web app build",
+  "main": "index.html",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/georgejacobt/hotRestaurant.git"
+  },
+  "author": "team 12",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/georgejacobt/hotRestaurant/issues"
+  },
+  "homepage": "https://github.com/georgejacobt/hotRestaurant#readme"
+}
